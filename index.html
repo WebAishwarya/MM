@@ -1,0 +1,44 @@
+<html>
+<head>
+	<title> Motivational </title>
+
+	<style>
+		* { font-size : 40px; }
+		h1 {color : white;}
+	</style>
+
+
+</head>
+
+<body style="background-color:green">
+
+<!--In this app there is no button, msg should display within seconds -->
+
+	<center>
+		<!--Client-->
+
+		<h1> Motivational Msg Version 3 </h1>
+		<h1 id="ans" />
+
+		<script>
+		function show()
+		{
+			let ans = document.getElementById("ans");
+			let url = "https://api.quotable.io/random";
+
+			//Promise Statement
+
+			fetch (url) 													//request
+			.then(res => res.json()) 											//response
+			.then(data => ans.innerHTML = "Motivational Message : " + "<br>" + data.content + "<br><br>" + "Author : " + "<br>" + data.author)	//data
+			.content(err => ans.innerHTML = "Issue" + err);									//Error
+		}
+		show();
+		setInterval(show, 5000);
+	</script>
+
+	</center>
+
+</body>
+
+</html>
